@@ -5,9 +5,16 @@ import click
 from .webapp import app
 
 
-def create_app():
-    return app
+# fictional function that load a "static" database.
+def load_db():
+    db = {
+        "foo": "bar",
+    }
+    return db
 
+def create_app():
+    app.db = load_db()
+    return app
 
 @click.command()
 def main():
